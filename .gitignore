@@ -1,0 +1,18 @@
+node_modules/
+out/
+extracts/
+*.log
+__pycache__/
+*.pyc
+.DS_Store
+
+# Secrets and local config. Never commit these. This repo is PUBLIC, so a
+# committed secret is a published secret until it is rotated.
+.env
+.env.*
+.dev.vars
+.dev.vars.*
+wrangler.jsonc
+worker-configuration.d.ts
+*.pem
+*.key

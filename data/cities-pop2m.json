@@ -1,0 +1,1136 @@
+{
+ "generated": "2026-09-27",
+ "source": "pop>=2,000,000 cities from the astro site atlas collections (public/data/atlas-collections.json)",
+ "minPop": 2000000,
+ "note": "slug is the canonical city slug used for output filenames (<slug>.json).",
+ "count": 161,
+ "cities": [
+  {
+   "slug": "tokyo-city-atlas",
+   "name": "Tokyo",
+   "lat": 35.68,
+   "lng": 139.69,
+   "pop": 38140000
+  },
+  {
+   "slug": "chongqing-city-atlas",
+   "name": "Chongqing",
+   "lat": 29.56,
+   "lng": 106.55,
+   "pop": 32054159
+  },
+  {
+   "slug": "delhi-city-atlas",
+   "name": "Delhi",
+   "lat": 28.61,
+   "lng": 77.21,
+   "pop": 26495000
+  },
+  {
+   "slug": "shanghai-city-atlas",
+   "name": "Shanghai",
+   "lat": 31.23,
+   "lng": 121.47,
+   "pop": 24870895
+  },
+  {
+   "slug": "karachi-city-atlas",
+   "name": "Karachi",
+   "lat": 24.8607,
+   "lng": 67.0011,
+   "pop": 23545000
+  },
+  {
+   "slug": "beijing-city-atlas",
+   "name": "Beijing",
+   "lat": 39.9,
+   "lng": 116.4,
+   "pop": 21893095
+  },
+  {
+   "slug": "chengdu-city-atlas",
+   "name": "Chengdu",
+   "lat": 30.57,
+   "lng": 104.07,
+   "pop": 20937757
+  },
+  {
+   "slug": "guangzhou-city-atlas",
+   "name": "Guangzhou",
+   "lat": 23.13,
+   "lng": 113.26,
+   "pop": 18676605
+  },
+  {
+   "slug": "shenzhen-city-atlas",
+   "name": "Shenzhen",
+   "lat": 22.54,
+   "lng": 114.06,
+   "pop": 17681600
+  },
+  {
+   "slug": "dhaka-city-atlas",
+   "name": "Dhaka",
+   "lat": 23.8103,
+   "lng": 90.4125,
+   "pop": 16800000
+  },
+  {
+   "slug": "istanbul-city-atlas",
+   "name": "Istanbul",
+   "lat": 41.01,
+   "lng": 28.98,
+   "pop": 15655924
+  },
+  {
+   "slug": "mumbai-city-atlas",
+   "name": "Mumbai",
+   "lat": 19.076,
+   "lng": 72.8777,
+   "pop": 15414288
+  },
+  {
+   "slug": "lagos-city-atlas",
+   "name": "Lagos",
+   "lat": 6.5244,
+   "lng": 3.3792,
+   "pop": 15070000
+  },
+  {
+   "slug": "kinshasa-city-atlas",
+   "name": "Kinshasa",
+   "lat": -4.325,
+   "lng": 15.3222,
+   "pop": 14565700
+  },
+  {
+   "slug": "hcmc-city-atlas",
+   "name": "Ho Chi Minh City",
+   "lat": 10.82,
+   "lng": 106.63,
+   "pop": 14002598
+  },
+  {
+   "slug": "tianjin-city-atlas",
+   "name": "Tianjin",
+   "lat": 39.13,
+   "lng": 117.2,
+   "pop": 13866009
+  },
+  {
+   "slug": "moscow-city-atlas",
+   "name": "Moscow",
+   "lat": 55.75,
+   "lng": 37.62,
+   "pop": 13274285
+  },
+  {
+   "slug": "xian-city-atlas",
+   "name": "Xi'an",
+   "lat": 34.27,
+   "lng": 108.95,
+   "pop": 12952907
+  },
+  {
+   "slug": "suzhou-city-atlas",
+   "name": "Suzhou",
+   "lat": 31.3,
+   "lng": 120.62,
+   "pop": 12748262
+  },
+  {
+   "slug": "zhengzhou-city-atlas",
+   "name": "Zhengzhou",
+   "lat": 34.75,
+   "lng": 113.62,
+   "pop": 12600574
+  },
+  {
+   "slug": "wuhan-city-atlas",
+   "name": "Wuhan",
+   "lat": 30.59,
+   "lng": 114.31,
+   "pop": 12447718
+  },
+  {
+   "slug": "saopaulo-city-atlas",
+   "name": "Sao Paulo",
+   "lat": -23.55,
+   "lng": -46.63,
+   "pop": 12396372
+  },
+  {
+   "slug": "bangalore-city-atlas",
+   "name": "Bengaluru",
+   "lat": 12.9716,
+   "lng": 77.5946,
+   "pop": 12327000
+  },
+  {
+   "slug": "hangzhou-city-atlas",
+   "name": "Hangzhou",
+   "lat": 30.27,
+   "lng": 120.15,
+   "pop": 11936010
+  },
+  {
+   "slug": "jakarta-city-atlas",
+   "name": "Jakarta",
+   "lat": -6.21,
+   "lng": 106.85,
+   "pop": 11135191
+  },
+  {
+   "slug": "lahore-city-atlas",
+   "name": "Lahore",
+   "lat": 31.55,
+   "lng": 74.34,
+   "pop": 11126285
+  },
+  {
+   "slug": "harbin-city-atlas",
+   "name": "Harbin",
+   "lat": 45.8,
+   "lng": 126.53,
+   "pop": 10635971
+  },
+  {
+   "slug": "seoul-city-atlas",
+   "name": "Seoul",
+   "lat": 37.57,
+   "lng": 126.98,
+   "pop": 10627790
+  },
+  {
+   "slug": "dongguan-city-atlas",
+   "name": "Dongguan",
+   "lat": 23.02,
+   "lng": 113.75,
+   "pop": 10466625
+  },
+  {
+   "slug": "cairo-city-atlas",
+   "name": "Cairo",
+   "lat": 30.04,
+   "lng": 31.24,
+   "pop": 10248385
+  },
+  {
+   "slug": "qingdao-city-atlas",
+   "name": "Qingdao",
+   "lat": 36.0671,
+   "lng": 120.3826,
+   "pop": 10071722
+  },
+  {
+   "slug": "changsha-city-atlas",
+   "name": "Changsha",
+   "lat": 28.23,
+   "lng": 112.94,
+   "pop": 10047914
+  },
+  {
+   "slug": "lima-city-atlas",
+   "name": "Lima",
+   "lat": -12.0464,
+   "lng": -77.0428,
+   "pop": 9943800
+  },
+  {
+   "slug": "foshan-city-atlas",
+   "name": "Foshan",
+   "lat": 23.0218,
+   "lng": 113.1219,
+   "pop": 9498863
+  },
+  {
+   "slug": "ny-city-atlas",
+   "name": "New York",
+   "lat": 40.71,
+   "lng": -74.01,
+   "pop": 9454995
+  },
+  {
+   "slug": "ningbo-city-atlas",
+   "name": "Ningbo",
+   "lat": 29.87,
+   "lng": 121.55,
+   "pop": 9404283
+  },
+  {
+   "slug": "hyderabad-city-atlas",
+   "name": "Hyderabad",
+   "lat": 17.39,
+   "lng": 78.49,
+   "pop": 9400000
+  },
+  {
+   "slug": "hefei-city-atlas",
+   "name": "Hefei",
+   "lat": 31.82,
+   "lng": 117.23,
+   "pop": 9369881
+  },
+  {
+   "slug": "nanjing-city-atlas",
+   "name": "Nanjing",
+   "lat": 32.06,
+   "lng": 118.8,
+   "pop": 9314685
+  },
+  {
+   "slug": "mexicocity-city-atlas",
+   "name": "Mexico City",
+   "lat": 19.43,
+   "lng": -99.13,
+   "pop": 9209944
+  },
+  {
+   "slug": "shenyang-city-atlas",
+   "name": "Shenyang",
+   "lat": 41.8057,
+   "lng": 123.4315,
+   "pop": 9070093
+  },
+  {
+   "slug": "kualalumpur-city-atlas",
+   "name": "Kuala Lumpur",
+   "lat": 3.14,
+   "lng": 101.69,
+   "pop": 9000280
+  },
+  {
+   "slug": "london-city-atlas",
+   "name": "London",
+   "lat": 51.51,
+   "lng": -0.13,
+   "pop": 8908081
+  },
+  {
+   "slug": "tehran-city-atlas",
+   "name": "Tehran",
+   "lat": 35.6892,
+   "lng": 51.389,
+   "pop": 8846782
+  },
+  {
+   "slug": "hanoi-city-atlas",
+   "name": "Hanoi",
+   "lat": 21.03,
+   "lng": 105.85,
+   "pop": 8717600
+  },
+  {
+   "slug": "fuzhou-city-atlas",
+   "name": "Fuzhou",
+   "lat": 26.07,
+   "lng": 119.3,
+   "pop": 8291268
+  },
+  {
+   "slug": "bangkok-city-atlas",
+   "name": "Bangkok",
+   "lat": 13.75,
+   "lng": 100.5,
+   "pop": 8280925
+  },
+  {
+   "slug": "baghdad-city-atlas",
+   "name": "Baghdad",
+   "lat": 33.3152,
+   "lng": 44.3661,
+   "pop": 8126755
+  },
+  {
+   "slug": "bogota-city-atlas",
+   "name": "Bogotá",
+   "lat": 4.711,
+   "lng": -74.0721,
+   "pop": 8034649
+  },
+  {
+   "slug": "riyadh-city-atlas",
+   "name": "Riyadh",
+   "lat": 24.71,
+   "lng": 46.68,
+   "pop": 7676655
+  },
+  {
+   "slug": "ahmedabad-city-atlas",
+   "name": "Ahmedabad",
+   "lat": 23.0225,
+   "lng": 72.5714,
+   "pop": 7645000
+  },
+  {
+   "slug": "hongkong-city-atlas",
+   "name": "Hong Kong",
+   "lat": 22.32,
+   "lng": 114.17,
+   "pop": 7500700
+  },
+  {
+   "slug": "wuxi-city-atlas",
+   "name": "Wuxi",
+   "lat": 31.49,
+   "lng": 120.31,
+   "pop": 7462135
+  },
+  {
+   "slug": "dalian-city-atlas",
+   "name": "Dalian",
+   "lat": 38.914,
+   "lng": 121.6147,
+   "pop": 7450785
+  },
+  {
+   "slug": "yangon-city-atlas",
+   "name": "Yangon",
+   "lat": 16.8661,
+   "lng": 96.1951,
+   "pop": 7360703
+  },
+  {
+   "slug": "riodejaneiro-city-atlas",
+   "name": "Rio de Janeiro",
+   "lat": -22.91,
+   "lng": -43.17,
+   "pop": 6775561
+  },
+  {
+   "slug": "chennai-city-atlas",
+   "name": "Chennai",
+   "lat": 13.0827,
+   "lng": 80.2707,
+   "pop": 6599000
+  },
+  {
+   "slug": "khartoum-city-atlas",
+   "name": "Khartoum",
+   "lat": 15.5007,
+   "lng": 32.5599,
+   "pop": 6527500
+  },
+  {
+   "slug": "santiago-city-atlas",
+   "name": "Santiago",
+   "lat": -33.45,
+   "lng": -70.67,
+   "pop": 6257516
+  },
+  {
+   "slug": "belohorizonte-city-atlas",
+   "name": "Belo Horizonte",
+   "lat": -19.9167,
+   "lng": -43.9345,
+   "pop": 6200000
+  },
+  {
+   "slug": "fortlauderdale-city-atlas",
+   "name": "Fort Lauderdale",
+   "lat": 26.1304,
+   "lng": -80.2147,
+   "pop": 6200000
+  },
+  {
+   "slug": "pune-city-atlas",
+   "name": "Pune",
+   "lat": 18.5204,
+   "lng": 73.8567,
+   "pop": 6200000
+  },
+  {
+   "slug": "puebla-city-atlas",
+   "name": "Puebla",
+   "lat": 19.0343,
+   "lng": -98.1949,
+   "pop": 6168883
+  },
+  {
+   "slug": "huizhou-city-atlas",
+   "name": "Huizhou",
+   "lat": 23.11,
+   "lng": 114.42,
+   "pop": 6042852
+  },
+  {
+   "slug": "surat-city-atlas",
+   "name": "Surat",
+   "lat": 21.1702,
+   "lng": 72.8311,
+   "pop": 5935000
+  },
+  {
+   "slug": "singapore-city-atlas",
+   "name": "Singapore",
+   "lat": 1.35,
+   "lng": 103.82,
+   "pop": 5888926
+  },
+  {
+   "slug": "ankara-city-atlas",
+   "name": "Ankara",
+   "lat": 39.9334,
+   "lng": 32.8597,
+   "pop": 5803482
+  },
+  {
+   "slug": "addisababa-city-atlas",
+   "name": "Addis Ababa",
+   "lat": 9.0054,
+   "lng": 38.7636,
+   "pop": 5704000
+  },
+  {
+   "slug": "abidjan-city-atlas",
+   "name": "Abidjan",
+   "lat": 5.336,
+   "lng": -4.026,
+   "pop": 5616633
+  },
+  {
+   "slug": "saintpetersburg-city-atlas",
+   "name": "Saint Petersburg",
+   "lat": 59.9311,
+   "lng": 30.3609,
+   "pop": 5600000
+  },
+  {
+   "slug": "nairobi-city-atlas",
+   "name": "Nairobi",
+   "lat": -1.2921,
+   "lng": 36.8219,
+   "pop": 5545000
+  },
+  {
+   "slug": "anyang-city-atlas",
+   "name": "Anyang",
+   "lat": 37.39,
+   "lng": 126.97,
+   "pop": 5477614
+  },
+  {
+   "slug": "sydney-city-atlas",
+   "name": "Sydney",
+   "lat": -33.87,
+   "lng": 151.21,
+   "pop": 5450496
+  },
+  {
+   "slug": "alexandria-city-atlas",
+   "name": "Alexandria",
+   "lat": 31.2001,
+   "lng": 29.9187,
+   "pop": 5362517
+  },
+  {
+   "slug": "melbourne-city-atlas",
+   "name": "Melbourne",
+   "lat": -37.81,
+   "lng": 144.96,
+   "pop": 5350705
+  },
+  {
+   "slug": "kabul-city-atlas",
+   "name": "Kabul",
+   "lat": 34.5553,
+   "lng": 69.2075,
+   "pop": 5333284
+  },
+  {
+   "slug": "johannesburg-city-atlas",
+   "name": "Johannesburg",
+   "lat": -26.2041,
+   "lng": 28.0473,
+   "pop": 4803262
+  },
+  {
+   "slug": "mesa-city-atlas",
+   "name": "Mesa",
+   "lat": 33.3872,
+   "lng": -111.738,
+   "pop": 4760000
+  },
+  {
+   "slug": "daressalaam-city-atlas",
+   "name": "Dar es Salaam",
+   "lat": -6.7924,
+   "lng": 39.2083,
+   "pop": 4715000
+  },
+  {
+   "slug": "jeddah-city-atlas",
+   "name": "Jeddah",
+   "lat": 21.54,
+   "lng": 39.19,
+   "pop": 4697000
+  },
+  {
+   "slug": "riverside-city-atlas",
+   "name": "Riverside",
+   "lat": 33.949,
+   "lng": -117.3839,
+   "pop": 4600000
+  },
+  {
+   "slug": "sanbernardino-city-atlas",
+   "name": "San Bernardino",
+   "lat": 34.1083,
+   "lng": -117.2898,
+   "pop": 4600000
+  },
+  {
+   "slug": "kolkata-city-atlas",
+   "name": "Kolkata",
+   "lat": 22.5726,
+   "lng": 88.3639,
+   "pop": 4580544
+  },
+  {
+   "slug": "casablanca-city-atlas",
+   "name": "Casablanca",
+   "lat": 33.5731,
+   "lng": -7.5898,
+   "pop": 4370000
+  },
+  {
+   "slug": "berlin-city-atlas",
+   "name": "Berlin",
+   "lat": 52.52,
+   "lng": 13.4,
+   "pop": 4332834
+  },
+  {
+   "slug": "tacoma-city-atlas",
+   "name": "Tacoma",
+   "lat": 47.1804,
+   "lng": -122.4307,
+   "pop": 4300000
+  },
+  {
+   "slug": "bamako-city-atlas",
+   "name": "Bamako",
+   "lat": 12.6392,
+   "lng": -8.0029,
+   "pop": 4227569
+  },
+  {
+   "slug": "zhaoqing-city-atlas",
+   "name": "Zhaoqing",
+   "lat": 23.05,
+   "lng": 112.47,
+   "pop": 4151700
+  },
+  {
+   "slug": "pyongyang-city-atlas",
+   "name": "Pyongyang",
+   "lat": 39.0392,
+   "lng": 125.7625,
+   "pop": 4138187
+  },
+  {
+   "slug": "urumqi-city-atlas",
+   "name": "Ürümqi",
+   "lat": 43.8256,
+   "lng": 87.6168,
+   "pop": 4054369
+  },
+  {
+   "slug": "amman-city-atlas",
+   "name": "Amman",
+   "lat": 31.9515,
+   "lng": 35.9239,
+   "pop": 4007526
+  },
+  {
+   "slug": "newtaipeicity-city-atlas",
+   "name": "New Taipei",
+   "lat": 25.0627,
+   "lng": 121.5065,
+   "pop": 4000000
+  },
+  {
+   "slug": "la-city-atlas",
+   "name": "Los Angeles",
+   "lat": 34.05,
+   "lng": -118.24,
+   "pop": 3990456
+  },
+  {
+   "slug": "dubai-city-atlas",
+   "name": "Dubai",
+   "lat": 25.2,
+   "lng": 55.27,
+   "pop": 3944751
+  },
+  {
+   "slug": "capetown-city-atlas",
+   "name": "Cape Town",
+   "lat": -33.92,
+   "lng": 18.42,
+   "pop": 3776313
+  },
+  {
+   "slug": "madrid-city-atlas",
+   "name": "Madrid",
+   "lat": 40.42,
+   "lng": -3.7,
+   "pop": 3506730
+  },
+  {
+   "slug": "toronto-city-atlas",
+   "name": "Toronto",
+   "lat": 43.65,
+   "lng": -79.38,
+   "pop": 3480000
+  },
+  {
+   "slug": "hohhot-city-atlas",
+   "name": "Hohhot",
+   "lat": 40.84,
+   "lng": 111.75,
+   "pop": 3446100
+  },
+  {
+   "slug": "algiers-city-atlas",
+   "name": "Algiers",
+   "lat": 36.7538,
+   "lng": 3.0588,
+   "pop": 3415811
+  },
+  {
+   "slug": "cebucity-city-atlas",
+   "name": "Cebu City",
+   "lat": 10.3167,
+   "lng": 123.8907,
+   "pop": 3300000
+  },
+  {
+   "slug": "orange-city-atlas",
+   "name": "Orange County",
+   "lat": 33.74,
+   "lng": -117.87,
+   "pop": 3222498
+  },
+  {
+   "slug": "mashhad-city-atlas",
+   "name": "Mashhad",
+   "lat": 36.31,
+   "lng": 59.57,
+   "pop": 3208000
+  },
+  {
+   "slug": "ningde-city-atlas",
+   "name": "Ningde",
+   "lat": 26.66,
+   "lng": 119.55,
+   "pop": 3146789
+  },
+  {
+   "slug": "buenosaires-city-atlas",
+   "name": "Buenos Aires",
+   "lat": -34.6,
+   "lng": -58.38,
+   "pop": 3121707
+  },
+  {
+   "slug": "brasilia-city-atlas",
+   "name": "Brasília",
+   "lat": -15.7939,
+   "lng": -47.8828,
+   "pop": 3094325
+  },
+  {
+   "slug": "taichung-city-atlas",
+   "name": "Taichung",
+   "lat": 24.205,
+   "lng": 120.6426,
+   "pop": 3033885
+  },
+  {
+   "slug": "surabaya-city-atlas",
+   "name": "Surabaya",
+   "lat": -7.2906,
+   "lng": 112.7258,
+   "pop": 3009286
+  },
+  {
+   "slug": "quezoncity-city-atlas",
+   "name": "Quezon City",
+   "lat": 14.6281,
+   "lng": 121.0471,
+   "pop": 3000000
+  },
+  {
+   "slug": "bursa-city-atlas",
+   "name": "Bursa",
+   "lat": 40.19,
+   "lng": 29.06,
+   "pop": 2994521
+  },
+  {
+   "slug": "kuwait-city-atlas",
+   "name": "Kuwait City",
+   "lat": 29.3759,
+   "lng": 47.9774,
+   "pop": 2989000
+  },
+  {
+   "slug": "kyiv-city-atlas",
+   "name": "Kyiv",
+   "lat": 50.45,
+   "lng": 30.52,
+   "pop": 2967360
+  },
+  {
+   "slug": "sanaa-city-atlas",
+   "name": "Sana'a",
+   "lat": 15.3694,
+   "lng": 44.191,
+   "pop": 2957000
+  },
+  {
+   "slug": "tashkent-city-atlas",
+   "name": "Tashkent",
+   "lat": 41.2995,
+   "lng": 69.2401,
+   "pop": 2956384
+  },
+  {
+   "slug": "charlotte-city-atlas",
+   "name": "Charlotte",
+   "lat": 35.189,
+   "lng": -80.8281,
+   "pop": 2900000
+  },
+  {
+   "slug": "rome-city-atlas",
+   "name": "Rome",
+   "lat": 41.9,
+   "lng": 12.5,
+   "pop": 2873494
+  },
+  {
+   "slug": "lapaz-city-atlas",
+   "name": "La Paz",
+   "lat": -16.4897,
+   "lng": -68.1193,
+   "pop": 2867504
+  },
+  {
+   "slug": "orlando-city-atlas",
+   "name": "Orlando",
+   "lat": 28.4837,
+   "lng": -81.3283,
+   "pop": 2800000
+  },
+  {
+   "slug": "stlouis-city-atlas",
+   "name": "St. Louis",
+   "lat": 38.6209,
+   "lng": -90.3346,
+   "pop": 2800000
+  },
+  {
+   "slug": "osaka-city-atlas",
+   "name": "Osaka",
+   "lat": 34.69,
+   "lng": 135.5,
+   "pop": 2751862
+  },
+  {
+   "slug": "chicago-city-atlas",
+   "name": "Chicago",
+   "lat": 41.88,
+   "lng": -87.63,
+   "pop": 2746388
+  },
+  {
+   "slug": "kaohsiung-city-atlas",
+   "name": "Kaohsiung",
+   "lat": 22.6805,
+   "lng": 120.3745,
+   "pop": 2734858
+  },
+  {
+   "slug": "brisbane-city-atlas",
+   "name": "Brisbane",
+   "lat": -27.47,
+   "lng": 153.03,
+   "pop": 2706966
+  },
+  {
+   "slug": "taipei-city-atlas",
+   "name": "Taipei",
+   "lat": 25.03,
+   "lng": 121.57,
+   "pop": 2706030
+  },
+  {
+   "slug": "sanantonio-city-atlas",
+   "name": "San Antonio",
+   "lat": 29.4688,
+   "lng": -98.5627,
+   "pop": 2700000
+  },
+  {
+   "slug": "damascus-city-atlas",
+   "name": "Damascus",
+   "lat": 33.5138,
+   "lng": 36.2765,
+   "pop": 2685360
+  },
+  {
+   "slug": "xianning-city-atlas",
+   "name": "Xianning",
+   "lat": 29.84,
+   "lng": 114.33,
+   "pop": 2658316
+  },
+  {
+   "slug": "antananarivo-city-atlas",
+   "name": "Antananarivo",
+   "lat": -18.8792,
+   "lng": 47.5079,
+   "pop": 2610000
+  },
+  {
+   "slug": "goinia-city-atlas",
+   "name": "Goiania",
+   "lat": -16.6786,
+   "lng": -49.2539,
+   "pop": 2600000
+  },
+  {
+   "slug": "luanda-city-atlas",
+   "name": "Luanda",
+   "lat": -8.839,
+   "lng": 13.2894,
+   "pop": 2584000
+  },
+  {
+   "slug": "portland-city-atlas",
+   "name": "Portland",
+   "lat": 45.5027,
+   "lng": -122.6508,
+   "pop": 2500000
+  },
+  {
+   "slug": "havana-city-atlas",
+   "name": "Havana",
+   "lat": 23.1136,
+   "lng": -82.3666,
+   "pop": 2492618
+  },
+  {
+   "slug": "lusaka-city-atlas",
+   "name": "Lusaka",
+   "lat": -15.4167,
+   "lng": 28.2833,
+   "pop": 2467563
+  },
+  {
+   "slug": "ouagadougou-city-atlas",
+   "name": "Ouagadougou",
+   "lat": 12.3714,
+   "lng": -1.5197,
+   "pop": 2453496
+  },
+  {
+   "slug": "yaounde-city-atlas",
+   "name": "Yaoundé",
+   "lat": 3.848,
+   "lng": 11.5021,
+   "pop": 2440462
+  },
+  {
+   "slug": "mecca-city-atlas",
+   "name": "Mecca",
+   "lat": 21.39,
+   "lng": 39.83,
+   "pop": 2427924
+  },
+  {
+   "slug": "beirut-city-atlas",
+   "name": "Beirut",
+   "lat": 33.8938,
+   "lng": 35.5018,
+   "pop": 2421354
+  },
+  {
+   "slug": "nagoya-city-atlas",
+   "name": "Nagoya",
+   "lat": 35.1815,
+   "lng": 136.9066,
+   "pop": 2326844
+  },
+  {
+   "slug": "houston-city-atlas",
+   "name": "Houston",
+   "lat": 29.7604,
+   "lng": -95.3698,
+   "pop": 2319603
+  },
+  {
+   "slug": "baku-city-atlas",
+   "name": "Baku",
+   "lat": 40.4093,
+   "lng": 49.8671,
+   "pop": 2300500
+  },
+  {
+   "slug": "sanjuan-city-atlas",
+   "name": "San Juan",
+   "lat": 18.3868,
+   "lng": -65.9745,
+   "pop": 2300000
+  },
+  {
+   "slug": "accra-city-atlas",
+   "name": "Accra",
+   "lat": 5.6037,
+   "lng": -0.187,
+   "pop": 2291352
+  },
+  {
+   "slug": "caracas-city-atlas",
+   "name": "Caracas",
+   "lat": 10.4806,
+   "lng": -66.9036,
+   "pop": 2245744
+  },
+  {
+   "slug": "paris-city-atlas",
+   "name": "Paris",
+   "lat": 48.86,
+   "lng": 2.35,
+   "pop": 2243739
+  },
+  {
+   "slug": "santodomingo-city-atlas",
+   "name": "Santo Domingo",
+   "lat": 18.4861,
+   "lng": -69.9312,
+   "pop": 2201941
+  },
+  {
+   "slug": "columbus-city-atlas",
+   "name": "Columbus",
+   "lat": 40.034,
+   "lng": -82.9886,
+   "pop": 2200000
+  },
+  {
+   "slug": "kansascity-city-atlas",
+   "name": "Kansas City",
+   "lat": 39.0872,
+   "lng": -94.6075,
+   "pop": 2200000
+  },
+  {
+   "slug": "taoyuan-city-atlas",
+   "name": "Taoyuan",
+   "lat": 24.9712,
+   "lng": 121.2584,
+   "pop": 2200000
+  },
+  {
+   "slug": "lome-city-atlas",
+   "name": "Lomé",
+   "lat": 6.1319,
+   "lng": 1.2228,
+   "pop": 2188376
+  },
+  {
+   "slug": "conakry-city-atlas",
+   "name": "Conakry",
+   "lat": 9.6412,
+   "lng": -13.5784,
+   "pop": 2160000
+  },
+  {
+   "slug": "harare-city-atlas",
+   "name": "Harare",
+   "lat": -17.8252,
+   "lng": 31.0335,
+   "pop": 2150000
+  },
+  {
+   "slug": "brazzaville-city-atlas",
+   "name": "Brazzaville",
+   "lat": -4.2634,
+   "lng": 15.2429,
+   "pop": 2145783
+  },
+  {
+   "slug": "perth-city-atlas",
+   "name": "Perth",
+   "lat": -31.95,
+   "lng": 115.86,
+   "pop": 2141834
+  },
+  {
+   "slug": "phnompenh-city-atlas",
+   "name": "Phnom Penh",
+   "lat": 11.5564,
+   "lng": 104.9282,
+   "pop": 2129371
+  },
+  {
+   "slug": "mogadishu-city-atlas",
+   "name": "Mogadishu",
+   "lat": 2.0469,
+   "lng": 45.3183,
+   "pop": 2120000
+  },
+  {
+   "slug": "vienna-city-atlas",
+   "name": "Vienna",
+   "lat": 48.2082,
+   "lng": 16.3738,
+   "pop": 2083630
+  },
+  {
+   "slug": "bucharest-city-atlas",
+   "name": "Bucharest",
+   "lat": 44.4268,
+   "lng": 26.1025,
+   "pop": 2067000
+  },
+  {
+   "slug": "queretaro-city-atlas",
+   "name": "Queretaro",
+   "lat": 20.59,
+   "lng": -100.39,
+   "pop": 2038372
+  },
+  {
+   "slug": "minsk-city-atlas",
+   "name": "Minsk",
+   "lat": 53.9006,
+   "lng": 27.559,
+   "pop": 2020600
+  },
+  {
+   "slug": "quito-city-atlas",
+   "name": "Quito",
+   "lat": -0.1807,
+   "lng": -78.4678,
+   "pop": 2011388
+  },
+  {
+   "slug": "newark-city-atlas",
+   "name": "Newark",
+   "lat": 40.7337,
+   "lng": -74.2007,
+   "pop": 2000000
+  },
+  {
+   "slug": "petalingjaya-city-atlas",
+   "name": "Petaling Jaya",
+   "lat": 3.1296,
+   "lng": 101.611,
+   "pop": 2000000
+  }
+ ]
+}

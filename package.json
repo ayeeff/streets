@@ -1,0 +1,14 @@
+{
+  "name": "city-streets",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Named-street extraction for every pop>=2M city, from Geofabrik OpenStreetMap country extracts",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "merge": "node scripts/merge-city-streets.mjs"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.658.0"
+  }
+}
