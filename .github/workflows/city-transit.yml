@@ -1,0 +1,176 @@
+name: city-transit
+
+# Extract per-city OSM transit (routes + stops) from the same Geofabrik country
+# PBFs the city-streets workflow uses, staged in object storage.
+#
+# Why not the existing planet workflow: .github/workflows/osm-route-relations.yml
+# downloads the whole 95 GB planet.pbf per run and was only ever run for 500
+# cities, leaving 779 of the 1,227 city-atlas cities with no OSM transit data.
+# Per-country over the 74 staged extracts is far cheaper and each file fits a CI
+# runner.
+#
+# Fully resumable: every job head-checks its own output key and exits in ~5 s if
+# the extract is already done, so re-running the matrix costs almost nothing.
+#
+# Required repository secrets (Settings -> Secrets -> Actions):
+#   R2_ENDPOINT, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY
+#   R2_BUCKET  (default: geo-datalake)
+#   R2_PREFIX  (default: data/osm-city-transit/)
+#
+# Inputs (workflow_dispatch):
+#   extracts       comma-separated Geofabrik slugs; blank = every slug
+#   max-parallel   concurrent jobs (default 6)
+#   force          re-extract even when the result key already exists
+
+on:
+  workflow_dispatch:
+    inputs:
+      extracts:
+        required: false
+        default: ''
+      max-parallel:
+        required: false
+        default: '6'
+      force:
+        required: false
+        default: 'false'
+
+env:
+  MIN_POP: '2000000'
+  MAX_ROUTES: '400'
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      slugs: ${{ steps.pick.outputs.slugs }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: pick
+        run: |
+          node -e "
+          const fs=require('fs');
+          const input='${{ inputs.extracts }}'.trim();
+          const all=JSON.parse(fs.readFileSync('data/country-extracts.json','utf8')).extracts;
+          const list=input ? input.split(',').map(s=>s.trim()).filter(Boolean) : all;
+          fs.writeFileSync('/tmp/slugs.json',JSON.stringify(list));
+          console.log('slugs:',list.length);
+          "
+          echo "slugs=$(cat /tmp/slugs.json)" >> $GITHUB_OUTPUT
+
+  extract:
+    needs: prepare
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ fromJSON(inputs.max-parallel || '6') }}
+      matrix:
+        extract: ${{ fromJSON(needs.prepare.outputs.slugs) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install osmium tools + python bindings
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq osmium-tool
+          pip install --quiet osmium numpy
+      - name: Configure object storage credentials
+        run: |
+          echo "R2_ENDPOINT=${{ secrets.R2_ENDPOINT }}" >> $GITHUB_ENV
+          echo "R2_ACCESS_KEY_ID=${{ secrets.R2_ACCESS_KEY_ID }}" >> $GITHUB_ENV
+          echo "R2_SECRET_ACCESS_KEY=${{ secrets.R2_SECRET_ACCESS_KEY }}" >> $GITHUB_ENV
+          echo "R2_BUCKET=${{ secrets.R2_BUCKET || 'geo-datalake' }}" >> $GITHUB_ENV
+          echo "R2_PREFIX=${{ secrets.R2_PREFIX || 'data/osm-city-transit/' }}" >> $GITHUB_ENV
+          echo "AWS_ACCESS_KEY_ID=${{ secrets.R2_ACCESS_KEY_ID }}" >> $GITHUB_ENV
+          echo "AWS_SECRET_ACCESS_KEY=${{ secrets.R2_SECRET_ACCESS_KEY }}" >> $GITHUB_ENV
+          echo "AWS_ENDPOINT_URL=${{ secrets.R2_ENDPOINT }}" >> $GITHUB_ENV
+          echo "AWS_DEFAULT_REGION=auto" >> $GITHUB_ENV
+      - name: Build major-city list
+        run: |
+          node -e "
+          const fs=require('fs');
+          const d=JSON.parse(fs.readFileSync('data/cities-pop2m.json','utf8'));
+          const minPop=Number(process.env.MIN_POP);
+          const cities=d.cities.filter(x=>typeof x.pop==='number'&&x.pop>=minPop&&x.lat!=null&&x.lng!=null)
+            .map(x=>({slug:x.slug,name:x.name,lat:x.lat,lng:x.lng,pop:x.pop}));
+          fs.writeFileSync('/tmp/cities.json',JSON.stringify(cities));
+          console.log('major cities:',cities.length);
+          "
+      - name: Check if already extracted
+        id: check
+        env:
+          FORCE: ${{ inputs.force }}
+        run: |
+          if [ "$FORCE" = "true" ]; then
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "force requested - re-extracting"
+          elif aws s3api head-object --bucket "$R2_BUCKET" \
+               --key "${R2_PREFIX}${{ matrix.extract }}.json" >/dev/null 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "already extracted - skipping"
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+      - name: Download country extract
+        if: steps.check.outputs.exists != 'true'
+        run: |
+          aws s3 cp "s3://$R2_BUCKET/sources/osm/${{ matrix.extract }}-latest.osm.pbf" \
+                   /tmp/src.osm.pbf --no-progress
+          ls -lh /tmp/src.osm.pbf
+      - name: Prefilter to route ways + route relations (C++)
+        if: steps.check.outputs.exists != 'true'
+        run: |
+          # Keeps every highway/railway way and every type=route relation, plus
+          # the objects they reference. Do NOT add -R: that omits referenced
+          # objects and the extractor would then see zero nodes.
+          osmium tags-filter -f pbf -o /tmp/tr.pbf --overwrite /tmp/src.osm.pbf \
+            w/highway w/railway r/type=route
+          rm -f /tmp/src.osm.pbf
+          ls -lh /tmp/tr.pbf
+      - name: Extract city transit
+        if: steps.check.outputs.exists != 'true'
+        run: |
+          python scripts/city-transit-pbf.py \
+            /tmp/tr.pbf /tmp/cities.json /tmp/out.json "$MAX_ROUTES"
+          echo "--- cities with routes ---"
+          node -e "
+          const d=require('/tmp/out.json');
+          const hit=Object.entries(d.cities).filter(([,v])=>v.counts.routes>0).sort((a,b)=>b[1].counts.routes-a[1].counts.routes);
+          console.log('cities with routes:',hit.length,'of',Object.keys(d.cities).length);
+          let tr=0,ts=0;
+          for(const [,v] of hit){tr+=v.counts.routes;ts+=v.counts.stops;}
+          console.log('total routes:',tr,' total stops:',ts);
+          for(const [k,v] of hit.slice(0,10)) console.log('  ',k.padEnd(30),v.counts.routes,'routes',v.counts.stops,'stops',JSON.stringify(v.counts.byMode));
+          "
+      - name: Upload result
+        if: steps.check.outputs.exists != 'true'
+        run: |
+          aws s3 cp /tmp/out.json "s3://$R2_BUCKET/${R2_PREFIX}${{ matrix.extract }}.json" \
+            --content-type application/json --no-progress
+
+  merge:
+    needs: extract
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci --no-audit --no-fund
+      - name: Merge per-extract transit into per-city files
+        env:
+          R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET || 'geo-datalake' }}
+          R2_PREFIX: ${{ secrets.R2_PREFIX || 'data/osm-city-transit/' }}
+        run: node scripts/merge-city-transit.mjs --out out
+      - uses: actions/upload-artifact@v4
+        with:
+          name: city-transit
+          path: out/
+          retention-days: 7
