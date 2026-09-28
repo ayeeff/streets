@@ -38,6 +38,15 @@ on:
 env:
   MIN_POP: '2000000'
   MAX_ROUTES: '400'
+  # The prefix is a constant of THIS dataset, not a shared secret.
+  #
+  # Do not drive it from a `R2_PREFIX` repository secret: the city-streets
+  # workflow owns that name, and reading it here made every job head-check
+  # data/osm-city-streets/<slug>.json, find the existing street result, and skip
+  # — so a full 74-job run extracted nothing. One secret meaning two key spaces
+  # is a silent no-op waiting to happen; keep the prefixes hardcoded and
+  # separate. Override per-run with the `prefix` input if ever needed.
+  TRANSIT_PREFIX: 'data/osm-city-transit/'
 
 jobs:
   prepare:
@@ -83,11 +92,12 @@ jobs:
           echo "R2_ACCESS_KEY_ID=${{ secrets.R2_ACCESS_KEY_ID }}" >> $GITHUB_ENV
           echo "R2_SECRET_ACCESS_KEY=${{ secrets.R2_SECRET_ACCESS_KEY }}" >> $GITHUB_ENV
           echo "R2_BUCKET=${{ secrets.R2_BUCKET || 'geo-datalake' }}" >> $GITHUB_ENV
-          echo "R2_PREFIX=${{ secrets.R2_PREFIX || 'data/osm-city-transit/' }}" >> $GITHUB_ENV
+          echo "R2_PREFIX=$TRANSIT_PREFIX" >> $GITHUB_ENV
           echo "AWS_ACCESS_KEY_ID=${{ secrets.R2_ACCESS_KEY_ID }}" >> $GITHUB_ENV
           echo "AWS_SECRET_ACCESS_KEY=${{ secrets.R2_SECRET_ACCESS_KEY }}" >> $GITHUB_ENV
           echo "AWS_ENDPOINT_URL=${{ secrets.R2_ENDPOINT }}" >> $GITHUB_ENV
           echo "AWS_DEFAULT_REGION=auto" >> $GITHUB_ENV
+          echo "using prefix: $R2_BUCKET/$TRANSIT_PREFIX"
       - name: Build major-city list
         run: |
           node -e "
@@ -167,8 +177,13 @@ jobs:
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           R2_BUCKET: ${{ secrets.R2_BUCKET || 'geo-datalake' }}
-          R2_PREFIX: ${{ secrets.R2_PREFIX || 'data/osm-city-transit/' }}
-        run: node scripts/merge-city-transit.mjs --out out
+          R2_PREFIX: ${{ env.TRANSIT_PREFIX }}
+        run: |
+          node scripts/merge-city-transit.mjs --out out
+          aws s3 cp out/city-transit-manifest.json \
+            "s3://$R2_BUCKET/$R2_PREFIX/city-transit-manifest.json" \
+            --content-type application/json --no-progress
+          echo "published city-transit-manifest.json to s3://$R2_BUCKET/$R2_PREFIX/"
       - uses: actions/upload-artifact@v4
         with:
           name: city-transit
